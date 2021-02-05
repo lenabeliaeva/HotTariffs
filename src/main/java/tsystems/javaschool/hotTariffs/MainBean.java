@@ -1,16 +1,31 @@
 package tsystems.javaschool.hotTariffs;
 
-import javax.faces.bean.ManagedBean;
+import javax.ejb.Stateless;
+import javax.faces.push.Push;
+import javax.faces.push.PushContext;
+import javax.inject.Inject;
+import javax.inject.Named;
+import java.io.IOException;
+import java.util.concurrent.TimeoutException;
 
-@ManagedBean(name = "mainBean", eager = true)
+@Named
+@Stateless
 public class MainBean {
-    private String message;
+    private final Receiver receiver = new Receiver();
 
-    public String getMessage() {
-        return message;
+    @Inject
+    @Push(channel = "tariffsChannel")
+    PushContext tariffsChannel;
+
+    public void update() {
+        tariffsChannel.send("updateTariffs");
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void getMessage() {
+        try {
+            receiver.getMessage();
+        } catch (IOException | TimeoutException e) {
+            e.printStackTrace();
+        }
     }
 }
