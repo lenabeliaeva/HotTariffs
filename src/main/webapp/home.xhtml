@@ -2,16 +2,44 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://java.sun.com/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 <head>
-    <title>First JSF Application</title>
+    <title>Hot tariffs</title>
 </head>
-
 <body>
-<h:form>
-    <f:websocket channel="tariffsChannel">
-        <p:ajax event="updateTariffs"/>
-    </f:websocket>
-</h:form>
+<h:dataTable var="tariff" value="#{mainBean.tariffs}" columns="1" layout="grid"
+            rows="6" paginator="true" id="tariffs"
+            paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+            rowsPerPageTemplate="3,6">
+
+    <f:facet name="header">
+        Most Popular Tariffs
+    </f:facet>
+
+    <h:panelGrid header="#{tariff.name}" style="text-align:center">
+        <h:panelGrid columns="1" style="width:100%">
+
+            <h:outputText value="Tariff price: #{tariff.price}"/>
+            <h:outputText value="Available options for this tariff: "/>
+
+            <h:dataTable value="#{tariff.options}" var="option">
+
+                <h:column headerText="Title">
+                    <h:outputText value="#{option.name}"/>
+                </h:column>
+
+                <h:column headerText="Price">
+                    <h:outputText value="#{option.price}"/>
+                </h:column>
+
+                <h:column headerText="Cost Of Connection">
+                    <h:outputText value="#{option.connectionCost}"/>
+                </h:column>
+
+            </h:dataTable>
+        </h:panelGrid>
+    </h:panelGrid>
+
+</h:dataTable>
 </body>
 </html>

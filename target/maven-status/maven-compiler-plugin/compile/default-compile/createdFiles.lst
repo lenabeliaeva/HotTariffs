@@ -1,3 +1,7 @@
+tsystems\javaschool\hotTariffs\Loader.class
 tsystems\javaschool\hotTariffs\MainBean.class
+tsystems\javaschool\hotTariffs\model\Tariff.class
 tsystems\javaschool\hotTariffs\Receiver.class
-tsystems\javaschool\hotTariffs\Tariff.class
+tsystems\javaschool\hotTariffs\Loader$1.class
+tsystems\javaschool\hotTariffs\model\Option.class
+tsystems\javaschool\hotTariffs\TariffBean.class

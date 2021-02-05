@@ -11,20 +11,27 @@ import java.util.concurrent.TimeoutException;
 
 public class Receiver {
     private static final String QUEUE_NAME = "tariffQueue";
+    Connection connection;
+    Channel channel;
 
     public void getMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
-        Connection connection = factory.newConnection();
-        Channel channel = connection.createChannel();
-
+        connection = factory.newConnection();
+        channel = connection.createChannel();
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
-        System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
+
+        System.out.println(" [*] Waiting for messages.");
 
         DeliverCallback deliverCallback = (consumerTag, delivery) -> {
             String message = new String(delivery.getBody(), StandardCharsets.UTF_8);
             System.out.println(" [x] Received '" + message + "'");
         };
         channel.basicConsume(QUEUE_NAME, true, deliverCallback, consumerTag -> { });
+    }
+
+    public void close() throws IOException, TimeoutException {
+        channel.close();
+        connection.close();
     }
 }
