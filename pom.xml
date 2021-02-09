@@ -10,8 +10,8 @@
   <packaging>war</packaging>
 
   <name>HotTariff Maven Webapp</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+<!--  &lt;!&ndash; FIXME change it to the project's website &ndash;&gt;-->
+<!--  <url>http://www.example.com</url>-->
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -80,6 +80,11 @@
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
       <version>1.18.10</version>
+    </dependency>
+    <dependency>
+      <groupId>org.primefaces</groupId>
+      <artifactId>primefaces</artifactId>
+      <version>10.0.0-RC1</version>
     </dependency>
   </dependencies>
 

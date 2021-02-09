@@ -15,7 +15,7 @@ import java.util.List;
 
 @Slf4j
 public class Loader {
-    private String GET_TARIFF_LIST_URL = "http://localhost:8080/tariffs";
+    private final String GET_TARIFF_LIST_URL = "http://localhost:8080/tariffs";
     private final Client client = new Client();
     private final GsonBuilder builder = new GsonBuilder();
     private final Gson gson = builder.create();
@@ -41,6 +41,9 @@ public class Loader {
 
     private String getResultResponse(String URL) {
         WebResource webResource = client.resource(URL);
-        return webResource.accept(MediaType.APPLICATION_JSON).get(ClientResponse.class).getEntity(String.class);
+        return webResource
+                .accept(MediaType.APPLICATION_JSON)
+                .get(ClientResponse.class)
+                .getEntity(String.class);
     }
 }

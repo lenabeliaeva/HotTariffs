@@ -1,6 +1,7 @@
 package tsystems.javaschool.hotTariffs;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import tsystems.javaschool.hotTariffs.model.Tariff;
 
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.concurrent.TimeoutException;
 
 @Singleton
+@NoArgsConstructor
 public class TariffBean {
 
     private final Receiver receiver = new Receiver();
@@ -22,7 +24,7 @@ public class TariffBean {
     private List<Tariff> tariffs;
 
     @PostConstruct
-    private void init() {
+    public void init() {
         try {
             receiver.getMessage();
         } catch (IOException | TimeoutException e) {

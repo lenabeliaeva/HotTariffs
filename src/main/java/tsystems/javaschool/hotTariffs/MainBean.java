@@ -1,5 +1,6 @@
 package tsystems.javaschool.hotTariffs;
 
+import lombok.NoArgsConstructor;
 import tsystems.javaschool.hotTariffs.model.Tariff;
 
 import javax.ejb.EJB;
@@ -7,12 +8,14 @@ import javax.faces.bean.ManagedBean;
 import java.util.List;
 
 @ManagedBean
+@NoArgsConstructor
 public class MainBean {
 
     @EJB
-    private TariffBean tariffBean;
+    TariffBean tariffBean = new TariffBean();
 
     public List<Tariff> getTariffs() {
         return tariffBean.getTariffs();
     }
+
 }
