@@ -12,7 +12,7 @@ import java.util.List;
 public class MainBean {
 
     @EJB
-    TariffBean tariffBean = new TariffBean();
+    TariffBean tariffBean;
 
     public List<Tariff> getTariffs() {
         return tariffBean.getTariffs();
