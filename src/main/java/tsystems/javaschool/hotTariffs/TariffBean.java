@@ -2,11 +2,11 @@ package tsystems.javaschool.hotTariffs;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import tsystems.javaschool.hotTariffs.model.Tariff;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import javax.ejb.EJB;
 import javax.ejb.Singleton;
 import java.io.IOException;
 import java.util.List;
@@ -16,21 +16,26 @@ import java.util.concurrent.TimeoutException;
 @NoArgsConstructor
 public class TariffBean {
 
-    private final Receiver receiver = new Receiver();
+    @EJB
+    private Receiver receiver;
+
     private final Loader loader = Loader.getInstance();
 
     @Getter
-    @Setter
     private List<Tariff> tariffs;
 
     @PostConstruct
-    public void init() {
+    private void init() {
         try {
             receiver.getMessage();
         } catch (IOException | TimeoutException e) {
             e.printStackTrace();
         }
-        updateTariffList();
+        loadTariffList();
+    }
+
+    public void loadTariffList() {
+        tariffs = loader.getTariffs();
     }
 
     @PreDestroy
@@ -40,9 +45,5 @@ public class TariffBean {
         } catch (IOException | TimeoutException e) {
             e.printStackTrace();
         }
-    }
-
-    private void updateTariffList() {
-        tariffs = loader.getTariffs();
     }
 }

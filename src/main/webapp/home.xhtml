@@ -2,39 +2,48 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
 >
 
 <h:head>
     <title>Tariffs</title>
 </h:head>
 <h:body>
-    <h:dataTable var="tariff" value="#{mainBean.tariffs}" columns="1" layout="grid"
-                 rows="6" paginator="true" id="tariffs">
 
-        <h:panelGrid header="#{tariff.name}" style="text-align:center">
+    <p:poll update="tariffs" interval="2"/>
+
+    <p:dataGrid var="tariff" value="#{mainBean.tariffs}" columns="1" layout="grid" id="tariffs">
+
+        <f:facet name="header">
+            Tariffs
+        </f:facet>
+
+        <p:panel header="#{tariff.name}" style="text-align:center">
             <h:panelGrid columns="1" style="width:100%">
 
                 <h:outputText value="Tariff price: #{tariff.price}"/>
                 <h:outputText value="Available options for this tariff: "/>
 
-                <h:dataTable value="#{tariff.options}" var="option">
+                <p:dataTable value="#{tariff.options}" var="option">
 
-                    <h:column headerText="Title">
+                    <p:column headerText="Title">
                         <h:outputText value="#{option.name}"/>
-                    </h:column>
+                    </p:column>
 
-                    <h:column headerText="Price">
+                    <p:column headerText="Price">
                         <h:outputText value="#{option.price}"/>
-                    </h:column>
+                    </p:column>
 
-                    <h:column headerText="Cost Of Connection">
+                    <p:column headerText="Cost Of Connection">
                         <h:outputText value="#{option.connectionCost}"/>
-                    </h:column>
+                    </p:column>
 
-                </h:dataTable>
+                </p:dataTable>
             </h:panelGrid>
-        </h:panelGrid>
+        </p:panel>
 
-    </h:dataTable>
+    </p:dataGrid>
+
 </h:body>
 </html>
