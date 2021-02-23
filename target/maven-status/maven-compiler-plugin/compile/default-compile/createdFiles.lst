@@ -1,7 +1,7 @@
-tsystems\javaschool\hotTariffs\Loader.class
-tsystems\javaschool\hotTariffs\MainBean.class
-tsystems\javaschool\hotTariffs\model\Tariff.class
-tsystems\javaschool\hotTariffs\Receiver.class
-tsystems\javaschool\hotTariffs\Loader$1.class
-tsystems\javaschool\hotTariffs\model\Option.class
-tsystems\javaschool\hotTariffs\TariffBean.class
+tsystems\javaschool\hottariffs\Loader$1.class
+tsystems\javaschool\hottariffs\Loader.class
+tsystems\javaschool\hottariffs\MainBean.class
+tsystems\javaschool\hottariffs\Receiver.class
+tsystems\javaschool\hottariffs\model\Tariff.class
+tsystems\javaschool\hottariffs\model\Option.class
+tsystems\javaschool\hottariffs\TariffBean.class

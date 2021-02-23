@@ -1,0 +1,11 @@
+
+S
+java:S1128
+"6Remove this unused import 'lombok.extern.slf4j.Slf4j'.(ûúÄ®8¢…óü.
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(­‘‡È
+K
+java:S1191"5Use classes from the Java API instead of Sun classes.(±´ú
+7
+java:S1170"!Make this final field static too.(ÉŒµ
+s	java:S116"^Rename this field "GET_TARIFF_LIST_URL" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÉŒµ
+f	java:S117*"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(âÓª²

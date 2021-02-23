@@ -1,8 +1,8 @@
-package tsystems.javaschool.hotTariffs;
+package tsystems.javaschool.hottariffs;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import tsystems.javaschool.hotTariffs.model.Tariff;
+import tsystems.javaschool.hottariffs.model.Tariff;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;

@@ -1,4 +1,4 @@
-package tsystems.javaschool.hotTariffs;
+package tsystems.javaschool.hottariffs;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;

@@ -1,19 +1,20 @@
-package tsystems.javaschool.hotTariffs;
+package tsystems.javaschool.hottariffs;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
-import lombok.extern.slf4j.Slf4j;
-import tsystems.javaschool.hotTariffs.model.Tariff;
+import lombok.extern.log4j.Log4j;
+import tsystems.javaschool.hottariffs.model.Tariff;
 
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
-@Slf4j
+@Log4j
 public class Loader {
     private final String GET_TARIFF_LIST_URL = "http://localhost:8080/tariffs";
     private final Client client = new Client();

@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui"
@@ -27,15 +28,15 @@
 
                 <p:dataTable value="#{tariff.options}" var="option">
 
-                    <p:column headerText="Title">
+                    <p:column headerText="Title" style="text-align: center">
                         <h:outputText value="#{option.name}"/>
                     </p:column>
 
-                    <p:column headerText="Price">
+                    <p:column headerText="Price" style="text-align: center">
                         <h:outputText value="#{option.price}"/>
                     </p:column>
 
-                    <p:column headerText="Cost Of Connection">
+                    <p:column headerText="Cost Of Connection" style="text-align: center">
                         <h:outputText value="#{option.connectionCost}"/>
                     </p:column>
 

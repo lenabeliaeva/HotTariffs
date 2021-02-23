@@ -1,7 +1,7 @@
-package tsystems.javaschool.hotTariffs;
+package tsystems.javaschool.hottariffs;
 
 import lombok.NoArgsConstructor;
-import tsystems.javaschool.hotTariffs.model.Tariff;
+import tsystems.javaschool.hottariffs.model.Tariff;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
