@@ -4,6 +4,7 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.DeliverCallback;
+import lombok.extern.log4j.Log4j;
 
 import javax.ejb.EJB;
 import javax.ejb.Singleton;
@@ -11,6 +12,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.TimeoutException;
 
+@Log4j
 @Singleton
 public class Receiver {
     private static final String QUEUE_NAME = "tariffQueue";
@@ -29,7 +31,7 @@ public class Receiver {
         DeliverCallback deliverCallback = (consumerTag, delivery) -> {
             String message = new String(delivery.getBody(), StandardCharsets.UTF_8);
             tariffBean.loadTariffList();
-            System.out.println(" [x] Received '" + message + "'");
+            log.info(" [x] Received '" + message + "'");
         };
         channel.basicConsume(QUEUE_NAME, true, deliverCallback, consumerTag -> {
         });

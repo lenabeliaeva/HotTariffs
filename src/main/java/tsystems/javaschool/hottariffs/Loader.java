@@ -16,7 +16,7 @@ import java.util.List;
 
 @Log4j
 public class Loader {
-    private final String GET_TARIFF_LIST_URL = "http://localhost:8080/tariffs";
+    private static final String GET_TARIFF_LIST_URL = "http://localhost:8080/tariffs";
     private final Client client = new Client();
     private final GsonBuilder builder = new GsonBuilder();
     private final Gson gson = builder.create();
